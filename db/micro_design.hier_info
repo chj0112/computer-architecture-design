@@ -1,0 +1,26 @@
+|micro_design
+clk => address[0].CLK
+clk => address[1].CLK
+reset => address[0].ACLR
+reset => address[1].ACLR
+w => Mux0.IN0
+x => Mux0.IN1
+y => Mux0.IN2
+z => Mux0.IN3
+ld_inc_out <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+condition_sel_out[0] <= address[0].DB_MAX_OUTPUT_PORT_TYPE
+condition_sel_out[1] <= address[1].DB_MAX_OUTPUT_PORT_TYPE
+next_address_out[0] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+next_address_out[1] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+q_out[0] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+q_out[1] <= address[0].DB_MAX_OUTPUT_PORT_TYPE
+q_out[2] <= address[1].DB_MAX_OUTPUT_PORT_TYPE
+q_out[3] <= address[0].DB_MAX_OUTPUT_PORT_TYPE
+q_out[4] <= address[1].DB_MAX_OUTPUT_PORT_TYPE
+q_out[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+q_out[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+control_data[0] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+control_data[1] <= address[0].DB_MAX_OUTPUT_PORT_TYPE
+control_data[2] <= address[1].DB_MAX_OUTPUT_PORT_TYPE
+
+

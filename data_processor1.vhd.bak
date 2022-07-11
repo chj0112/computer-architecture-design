@@ -1,0 +1,36 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+
+ENTITY data_processor1 IS
+	PORT	(	input		:	IN			std_logic_vector(3 downto 0);
+				MAR_in	:	IN			std_logic_vector(2 downto 0);
+				alu_sel	:	IN			std_logic_vector(2 downto 0);
+				input_sel, ac_load, ram_load, mar_load : IN	std_logic;
+				clock		:	IN			std_logic;
+				output	:	OUT		std_logic_vector(3 downto 0));
+END data_processor1;
+
+ARCHITECTURE structural OF data_processor1 IS
+
+SIGNAL	data_in	:	std_logic_vector(3 downto 0);
+SIGNAL	op1		:	std_logic_vector(3 downto 0);
+SIGNAL	op2		:	std_logic_vector(3 downto 0);
+SIGNAL	mux_ac	:	std_logic_vector(3 downto 0);
+SIGNAL	mar_ram	:	std_logic_vector(2 downto 0);
+
+BEGIN
+
+	mux_ac <= input WHEN input_sel = '1' ELSE data_in;
+
+	PROCESS(clock)
+	BEGIN
+		IF (clock'event AND clock = '1') THEN
+			IF (ac_load = '1') THEN
+				op1 <= mux_ac;
+				output <= mux_ac;
+			IF (mar_load = '1') THEN
+				mar_ram <= mar_in;
+
+
+END structural;

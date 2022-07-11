@@ -1,0 +1,58 @@
+|lab_08
+clk => lab_08_dp:DP.clk
+clk => lab_08_cu:CU.clock
+rst => lab_08_cu:CU.reset
+dp_out[0] << lab_08_dp:DP.dp_out[0]
+dp_out[1] << lab_08_dp:DP.dp_out[1]
+dp_out[2] << lab_08_dp:DP.dp_out[2]
+dp_out[3] << lab_08_dp:DP.dp_out[3]
+
+
+|lab_08|lab_08_dp:DP
+clk => data[0].CLK
+clk => data[1].CLK
+clk => data[2].CLK
+clk => data[3].CLK
+load => data[3].ENA
+load => data[2].ENA
+load => data[1].ENA
+load => data[0].ENA
+clear => data[0].ACLR
+clear => data[1].ACLR
+clear => data[2].ACLR
+clear => data[3].ACLR
+out_sel => dp_out[0].OE
+out_sel => dp_out[1].OE
+out_sel => dp_out[2].OE
+out_sel => dp_out[3].OE
+iNOT10 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+dp_out[0] <= dp_out[0].DB_MAX_OUTPUT_PORT_TYPE
+dp_out[1] <= dp_out[1].DB_MAX_OUTPUT_PORT_TYPE
+dp_out[2] <= dp_out[2].DB_MAX_OUTPUT_PORT_TYPE
+dp_out[3] <= dp_out[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab_08|lab_08_cu:CU
+clock => out_sel~reg0.CLK
+clock => clear~reg0.CLK
+clock => load~reg0.CLK
+clock => y~3.DATAIN
+reset => y.DATAB
+reset => out_sel~reg0.ACLR
+reset => clear~reg0.PRESET
+reset => load~reg0.ACLR
+reset => y~5.DATAIN
+reset => load.OUTPUTSELECT
+reset => clear.OUTPUTSELECT
+reset => out_sel.OUTPUTSELECT
+reset => y.DATAB
+iNOT10 => Selector0.IN3
+iNOT10 => load.OUTPUTSELECT
+iNOT10 => clear.OUTPUTSELECT
+iNOT10 => out_sel.OUTPUTSELECT
+iNOT10 => Selector1.IN2
+load <= load~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear <= clear~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_sel <= out_sel~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

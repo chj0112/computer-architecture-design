@@ -1,0 +1,16 @@
+depth = 8;
+width = 1;
+address_radix = bin;
+adta_radix = bin;
+
+content
+begin
+	000 : 1;
+	001 : 1;
+	010 : 0;
+	011 : 1;
+	100 : 0;
+	101 : 0;
+	110 : 0;
+	111 : 1;
+end;

@@ -1,0 +1,8 @@
+vendor_name = ModelSim
+source_file = 1, C:/altera/13.1/quartus/bin64/work/temp_01.bdf
+source_file = 1, C:/altera/13.1/quartus/bin64/work/db/temp_01.cbx.xml
+design_name = temp_01
+instance = comp, \F~output\, F~output, temp_01, 1
+instance = comp, \C~input\, C~input, temp_01, 1
+instance = comp, \A~input\, A~input, temp_01, 1
+instance = comp, \B~input\, B~input, temp_01, 1

@@ -1,0 +1,24 @@
+|lab_08_dp
+clk => data[0].CLK
+clk => data[1].CLK
+clk => data[2].CLK
+clk => data[3].CLK
+load => data[3].ENA
+load => data[2].ENA
+load => data[1].ENA
+load => data[0].ENA
+clear => data[0].ACLR
+clear => data[1].ACLR
+clear => data[2].ACLR
+clear => data[3].ACLR
+out_sel => dp_out[0].OE
+out_sel => dp_out[1].OE
+out_sel => dp_out[2].OE
+out_sel => dp_out[3].OE
+iNOT10 << Equal0.DB_MAX_OUTPUT_PORT_TYPE
+dp_out[0] << dp_out[0].DB_MAX_OUTPUT_PORT_TYPE
+dp_out[1] << dp_out[1].DB_MAX_OUTPUT_PORT_TYPE
+dp_out[2] << dp_out[2].DB_MAX_OUTPUT_PORT_TYPE
+dp_out[3] << dp_out[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

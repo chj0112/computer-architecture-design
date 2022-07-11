@@ -1,0 +1,48 @@
+library ieee; 
+use ieee.std_logic_1164.all;
+
+entity lab_08_tb is
+end entity lab_08_tb;
+
+architecture arch of lab_08_tb is
+  signal clock  : std_logic :='0';
+  signal reset  : std_logic :='0';
+
+  signal i : std_logic_vector(3 downto 0);
+  signal iNOT10 : std_logic;
+  
+  constant T : time := 100 ns; 
+  signal finished : std_logic := '0';
+
+begin
+ 
+  -- Instantiate the design under test
+  dut: entity work.lab_08
+    port map (
+      clk => clock,
+      rst => reset,
+      dp_out => i
+    );
+	 
+-- Reset and clock
+
+  clock <= not clock after T/2 when finished /= '1' else '0';
+  reset <= '1', '0' after 50 ns;
+
+-- Generate the test stimulus
+  stimulus:  process begin
+     finished <= '0';
+  
+    -- Wait for the Reset to be released before
+    wait until (reset = '0');
+ 
+    -- Generate each of in turn, waiting 2 clock periods between
+    -- each iteration to allow for propagation times
+    wait until (i = "1010");
+	 wait for T;
+    -- Testing complete
+    finished <= '1';
+    wait;
+  end process stimulus;
+ 
+end arch;

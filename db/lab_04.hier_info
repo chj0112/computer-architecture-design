@@ -1,0 +1,54 @@
+|lab_04
+clk => rom_lab_04:rom_lab_04_inst.clock
+input[0] => rom_lab_04:rom_lab_04_inst.address[0]
+input[1] => rom_lab_04:rom_lab_04_inst.address[1]
+input[2] => rom_lab_04:rom_lab_04_inst.address[2]
+output <= rom_lab_04:rom_lab_04_inst.q
+
+
+|lab_04|rom_lab_04:rom_lab_04_inst
+address[0] => altsyncram:altsyncram_component.address_a[0]
+address[1] => altsyncram:altsyncram_component.address_a[1]
+address[2] => altsyncram:altsyncram_component.address_a[2]
+clock => altsyncram:altsyncram_component.clock0
+q[0] <= altsyncram:altsyncram_component.q_a[0]
+
+
+|lab_04|rom_lab_04:rom_lab_04_inst|altsyncram:altsyncram_component
+wren_a => ~NO_FANOUT~
+rden_a => ~NO_FANOUT~
+wren_b => ~NO_FANOUT~
+rden_b => ~NO_FANOUT~
+data_a[0] => ~NO_FANOUT~
+data_b[0] => ~NO_FANOUT~
+address_a[0] => altsyncram_9jr3:auto_generated.address_a[0]
+address_a[1] => altsyncram_9jr3:auto_generated.address_a[1]
+address_a[2] => altsyncram_9jr3:auto_generated.address_a[2]
+address_b[0] => ~NO_FANOUT~
+addressstall_a => ~NO_FANOUT~
+addressstall_b => ~NO_FANOUT~
+clock0 => altsyncram_9jr3:auto_generated.clock0
+clock1 => ~NO_FANOUT~
+clocken0 => ~NO_FANOUT~
+clocken1 => ~NO_FANOUT~
+clocken2 => ~NO_FANOUT~
+clocken3 => ~NO_FANOUT~
+aclr0 => ~NO_FANOUT~
+aclr1 => ~NO_FANOUT~
+byteena_a[0] => ~NO_FANOUT~
+byteena_b[0] => ~NO_FANOUT~
+q_a[0] <= altsyncram_9jr3:auto_generated.q_a[0]
+q_b[0] <= <GND>
+eccstatus[0] <= <GND>
+eccstatus[1] <= <GND>
+eccstatus[2] <= <GND>
+
+
+|lab_04|rom_lab_04:rom_lab_04_inst|altsyncram:altsyncram_component|altsyncram_9jr3:auto_generated
+address_a[0] => ram_block1a0.PORTAADDR
+address_a[1] => ram_block1a0.PORTAADDR1
+address_a[2] => ram_block1a0.PORTAADDR2
+clock0 => ram_block1a0.CLK0
+q_a[0] <= ram_block1a0.PORTADATAOUT
+
+

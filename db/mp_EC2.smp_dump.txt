@@ -1,0 +1,19 @@
+
+State Machine - |mp_EC2|state
+Name state.s_halt state.s_jpos state.s_jz state.s_input state.s_sub state.s_add state.s_store2 state.s_store state.s_load state.s_decode3 state.s_decode2 state.s_decode state.s_fetch state.s_start3 state.s_start2 state.s_start 
+state.s_start 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.s_start2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.s_start3 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.s_fetch 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.s_decode 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.s_decode2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.s_decode3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.s_load 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.s_store 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.s_store2 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.s_add 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.s_sub 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.s_input 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.s_jz 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.s_jpos 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.s_halt 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
